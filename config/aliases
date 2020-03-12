@@ -1,0 +1,13 @@
+# List of aliases in following format
+# <name>=<command>
+# each entry will be converted into following bash alias:
+# mkd_<name>=<command>
+
+devel='cd $HOME/Development'
+tools='cd $HOME/Tools'
+downloads='cd $HOME/Downloads'
+battery_v1='upower -i `upower -e | grep BAT`'
+battery_v2='cat /sys/class/power_supply/BAT1/uevent'
+pitools='source /opt/rpitools/rpi-cross-env'
+
+go_source='cd $GOPATH/src'

@@ -57,7 +57,7 @@ add_settings() {
     fi
 
     echo "* checking if SHeCoRe settings already used in .bashrc ..."
-    if [ `grep "$1" $HOME/.bashrc | wc -l` -eq 0 ];
+    if [ `grep "$SHCR" $HOME/.bashrc | wc -l` -eq 0 ];
     then
         echo "** adding SHeCoRe settings to .bashrc ..."
         cat << EOT >> $HOME/.bashrc
