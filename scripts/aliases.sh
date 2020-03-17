@@ -16,11 +16,10 @@ add_aliases() {
     cat << EOM > $alias_path
 # This is auto generated file - do not modify it manualy
 # If any modification needed please update aliases.source
-# and run ~/.mkd/update.sh or call 'mkd_tool_update'
+# and run ~/.mkd/scripts/update.sh or call 'mkd_tool_update'
 
 # Default MKD aliases
 alias mkd_tool_update='~/.mkd/scripts/update.sh'
-alias mkd_tool_sync='echo "Syncing not yet supported"'
 
 # User defined aliases
 EOM

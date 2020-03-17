@@ -16,7 +16,7 @@ set_variables() {
     echo > $vars_path << EOM
 # This is auto generated file - do not modify it manualy
 # If any modification needed please update variables.source
-# and run ~/.mkd/update.sh or call 'mkd_tool_update'
+# and run ~/.mkd/scripts/update.sh or call 'mkd_tool_update'
 
 EOM
 
