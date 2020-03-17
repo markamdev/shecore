@@ -13,7 +13,7 @@ set_variables() {
     fi
 
     vars_path=$2/variables.env
-    echo > $vars_path << EOM
+    cat << EOM > $vars_path
 # This is auto generated file - do not modify it manualy
 # If any modification needed please update variables.source
 # and run ~/.mkd/scripts/update.sh or call 'mkd_tool_update'
