@@ -64,11 +64,19 @@ create_dirs $CONFIG_DIR/dirs
 
 # add common aliases
 add_aliases $CONFIG_DIR/aliases $INSTALL_DIR
+# copy alias config file for future updates and syncing
+cp $CONFIG_DIR/aliases $INSTALL_DIR/aliases.source
+
 
 # set environment variables
 set_variables $CONFIG_DIR/variables $INSTALL_DIR
+# copy variables file for future updates and syncing
+cp $CONFIG_DIR/variables $INSTALL_DIR/variables.source
+
+# copy all current scripts for update purposes
+cp -R $SCRIPTS_DIR $INSTALL_DIR/
 
 # finished
 echo ""
-echo "All tasks finished"
+echo "All install tasks finished"
 echo "Reload terminal or source '$INSTALL_DIR/shecore.env' file"

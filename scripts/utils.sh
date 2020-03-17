@@ -38,6 +38,8 @@ add_settings() {
         else
             echo "... prepared "
         fi
+    else
+        rm -f $1/*.env $1/*.source
     fi
 
     SHCR=$1/shecore.env
@@ -45,7 +47,9 @@ add_settings() {
     echo "* checking if SHeCoRe settings file already exists"
     if [ -f $SHCR ];
     then
-        echo "... file found"
+        echo "** file found - resetting content"
+        echo -n "" > $SHCR
+        echo "... done"
     else
         echo "** preparing empty SHeCoRe settings file ..."
         touch $SHCR

@@ -12,7 +12,7 @@ set_variables() {
         mkd_error "No output dir given"
     fi
 
-    vars_path=$2/vars.env
+    vars_path=$2/variables.env
     echo > $vars_path << EOM
 # This is auto generated file - do not modify it manualy
 # If any modification needed please update variables.source
@@ -31,7 +31,4 @@ EOM
     echo "* registering variables file in shecore setting"
     echo ". $vars_path" >> $2/shecore.env
     echo "... done"
-
-    # copy variables file for future updates and syncing
-    cp $1 $2/variables.source
 }
