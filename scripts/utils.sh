@@ -1,82 +1,65 @@
 #!/bin/bash
 
-mkd_error() {
-    if [ "$1" == "" ];
-    then
-        echo "Error occured - exiting"
-    else
-        echo "Error: $1"
-        echo "Exiting from script"
-    fi
+HELP=0
+PROFILES=()
+
+_add_profile() {
+    echo "Creating files for new profile $1"
+    echo "NOT YET IMPLEMENTED!"
     exit 1
 }
 
-check_shell() {
-    echo "* checking current shell ..."
-    if [ `echo $SHELL | grep bash | wc -l` -ne 1 ];
+
+_check_profile() {
+    if [ ! -d ./profiles/$1 ];
     then
-        mkd_error "Non-bash shell detected"
+        echo "Profile '$1' does not exist - exiting"
+        exit 1
     fi
-    echo "... Bash detected"
-    echo "* checking .bashrc file ..."
-    if [ ! -e $HOME/.bashrc ];
-    then
-        mkd_error ".bashrc not found - are you using Bash?"
-    fi
-    echo "... proper shell settings file found"
 }
 
-add_settings() {
-    echo "* preparing tool directory ($1) ..."
-    if [ ! -d $1 ];
+_list_profiles() {
+    echo "List of profiles:"
+    echo "NOT YET IMPLEMENTED!"
+    exit 1
+}
+
+parse_option() {
+    if [ $# == 0 ];
     then
-        mkdir -p $1
-        if [ $? -ne 0 ];
-        then
-            # command failed
-            mkd_error "Failed to create output directory"
-        else
-            echo "... prepared "
-        fi
-    else
-        rm -f $1/*.env $1/*.source
+        HELP=1
+        return
     fi
+    while [ $# -gt 0 ]
+    do
+        current=$1
+        case $current in
+            help)
+            HELP=1
+            break
+            ;;
+            new)
+            _add_profile $2
+            break
+            ;;
+            list)
+            _list_profiles
+            ;;
+            *)
+            PROFILES+=("$current")
+            shift
+            ;;
+        esac
 
-    SHCR=$1/shecore.env
+    done
+}
 
-    echo "* checking if SHeCoRe settings file already exists"
-    if [ -f $SHCR ];
-    then
-        echo "** file found - resetting content"
-        echo -n "" > $SHCR
-        echo "... done"
-    else
-        echo "** preparing empty SHeCoRe settings file ..."
-        touch $SHCR
-        if [ $? -ne 0 ];
-        then
-            mkd_error "Failed to prepare new file"
-        fi
-        echo "... done"
-    fi
-
-    echo "* checking if SHeCoRe settings already used in .bashrc ..."
-    if [ `grep "$SHCR" $HOME/.bashrc | wc -l` -eq 0 ];
-    then
-        echo "** adding SHeCoRe settings to .bashrc ..."
-        cat << EOT >> $HOME/.bashrc
-
-# Settings for SHeCoRe
-. $SHCR
-EOT
-        echo "... done"
-
-        echo "** adding test command (mkd_shecore) ..."
-        INSTALL_DATE=`date +"%Y.%m.%d"`
-        echo "alias mkd_shecore='echo SHeCoRe installed on: $INSTALL_DATE'" >> $SHCR
-        echo "... done"
-    else
-        echo "... SHeCoRe settings already in use"
-    fi
-
+print_help() {
+    echo "Usage:"
+    echo "* $(basename $1) help                         print help message (current screen)"
+    echo "* $(basename $1) new <name>                   create new empty profile <name>"
+    echo "* $(basename $1) list                         print list of available profiles"
+    echo "* $(basename $1) <profileA> ... <profileZ>    apply settings from given profiles"
+    echo "- - - -"
+    exit 0
 }

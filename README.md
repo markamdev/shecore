@@ -1,20 +1,32 @@
 # SHeCoRe - Shell Configuration Restorer
 
-Simple tool (scripts and config files) for restoring shell settings.
+Set of scripts and config files for restoring shell/environment settings.
 
-This tool can be used to configure fresh shell environment (OS reinstallation, new machine) with your favorite settings including:
+This tool has been prepared for private purpose so probably is useless for the rest of the world. In case you find it useful please find some short manual in this document.
 
-* command aliases
-* default set of directories (and symlinks) in home directory
-* environment variables (prompt, default console editor and so)
+Currently the scripts provide restoration of following settings:
 
-It can be also usefull to sync your settings between different machines (ex. PC and laptop, home and work PC and so).
+* bash settings [in progress] - aliases, prompt, environment variables
+* directories [in progress] - set of directories one wants to have on each development/personal/work machine
+* installed applications [to be done] - automatic application installation (Ubuntu apt and CentOS yum supported)
+
+## Repository content
+
+### Scripts
+
+### Profiles (folders with settings)
 
 ## Fetching, configuration and installation
 
+TODO
+
 ## Usage
 
+TODO
+
 ## Synchronization
+
+TODO
 
 ## Author
 
