@@ -89,7 +89,7 @@ _apply_dirs() {
     for dr in $(cat $1)
     do
         echo "... $dr"
-        mkdir -p $dr
+        mkdir -p ~/$dr
     done
 }
 
