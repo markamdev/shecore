@@ -27,6 +27,28 @@ then
     done
 fi
 
+# do not work on target files - use temporary cache
+CACHEDIR=.cache
+
+if [ -d $CACHEDIR ];
+then
+# be sure to work on clear files
+    rm -r $CACHEDIR/*
+fi
+
+# prepare cache directory if does not exists
+mkdir -p $CACHEDIR
+
+# process each profile one by one and prepare data in cache
+for prf in ${PROFILES[@]}
+do
+    echo "processing $prf ..."
+    _process_profile $prf $CACHEDIR
+done
+
+# prepare ~/.shecore directory (if not exist), attach bash settings, create dirs and so
+_apply_shecore $CACHEDIR
+
 echo "- - - - -"
 echo "All operations finished - please reload your console/terminal"
 echo "- - - - -"
