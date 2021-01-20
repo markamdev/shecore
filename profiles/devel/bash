@@ -1,10 +1,10 @@
 # -- settings for bash --
 
-# prompt
-
 # aliases
+alias my_devel='cd ~/Development'
+alias my_temp='cd ~/Temp'
+alias my_get_docker='curl https://get.docker.com -o getDockerLatest.sh && echo "Docker script fetched!" || echo "Failed to fetch Docker script"'
 
 # env variables
 
 # ----
-

@@ -1,0 +1,7 @@
+# -- settings for bash --
+
+# autocompletion for kubectl and minikube
+source <(kubectl completion bash)
+source <(minikube completion bash)
+
+# ----

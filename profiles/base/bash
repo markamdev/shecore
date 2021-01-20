@@ -1,10 +1,15 @@
 # -- settings for bash --
 
+# functions
+
 # prompt
+PS1="\$(date \"+%H:%M\") \[\033[36m\]\u\[\033[m\]@\h\[\033[32m\] \[\033[33;1m\]\w\[\033[m\] (\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)) \n\$ "
 
 # aliases
+# - aliases for checking battery state on my Toshiba laptop
+alias my_battery_v1='upower -i `upower -e | grep BAT`'
+alias my_battery_v2='cat /sys/class/power_supply/BAT1/uevent'
 
 # env variables
-
+export EDITOR=vim
 # ----
-
