@@ -1,7 +1,0 @@
-# List of environment variables to be set
-
-# editor used by different tools, ex. by git commit command
-EDITOR=vim
-
-# 2-line bash prompt with git branch name
-PS1="\$(date \"+%H:%M\") \[\033[36m\]\u\[\033[m\]@\h\[\033[32m\] \[\033[33;1m\]\w\[\033[m\] (\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)) \n\$ "
