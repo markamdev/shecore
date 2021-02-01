@@ -1,0 +1,5 @@
+# -- Raspberry related bash settings --
+
+alias my_gpio_list='ls /sys/class/gpio/ | grep "gpio[0-9]"'
+
+# -----
