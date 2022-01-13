@@ -3,8 +3,12 @@
 # aliases
 alias my_devel='cd ~/Development'
 alias my_temp='cd ~/Temp'
-alias my_get_docker='curl https://get.docker.com -o getDockerLatest.sh && echo "Docker script fetched!" || echo "Failed to fetch Docker script"'
+alias my_get_docker='mkdir -p ~/Scripts; curl https://get.docker.com -o ~/Scripts/getDockerLatest.sh && echo "Docker script fetched to $HOME/Scripts/" || echo "Failed to fetch Docker script"'
+alias my_get_go='echo failed - not yet available'
 
 # env variables
+export GOPATH="$HOME/goworkspace"
+export GOROOT="/opt/go"
+export PATH="$GOROOT/bin:$PATH"
 
 # ----

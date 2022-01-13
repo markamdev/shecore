@@ -19,9 +19,18 @@ _check_profile() {
 }
 
 _list_profiles() {
+    if [ ! -d ./profiles ];
+    then
+        echo "Profile directory does not exist - exiting"
+        exit 1
+    fi
     echo "List of profiles:"
-    echo "NOT YET IMPLEMENTED!"
-    exit 1
+    PROF_DIRS=$(cd ./profiles/; find . -type d | grep -v "^.$" | sed -e 's#./##')
+    for prf in $PROF_DIRS
+    do
+        echo "-> $prf"
+    done
+    exit 0
 }
 
 parse_option() {
