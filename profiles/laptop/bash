@@ -1,0 +1,12 @@
+# -- settings for bash --
+
+# functions
+
+# aliases
+# - aliases for checking battery state on my Toshiba laptop
+alias my_battery_v1='upower -i `upower -e | grep BAT`'
+alias my_battery_v2='cat /sys/class/power_supply/BAT1/uevent'
+
+# env variables
+
+# ----
